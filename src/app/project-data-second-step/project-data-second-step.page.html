@@ -1,13 +1,49 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>proyectDataSecondStep</ion-title>
+    <!-- <ion-title>proyectDataSecondStep</ion-title> -->
+    <ion-button slot="start" routerLink="/project-data-first-step" >Back</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">proyectDataSecondStep</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <div>
+        <ion-input label="Task Title" labelPlacement="floating" placeholder="Enter text"></ion-input>
+    </div>
+    <div>
+      <ion-textarea
+      label="Task description"
+      labelPlacement="floating"
+      [counter]="true"
+      maxlength="20"
+      [counterFormatter]="customCounterFormatter"
+      ></ion-textarea>
+    </div>
+    <div>
+      <ion-button expand="block"  routerLink="/project-data-third-step" >Add subtask</ion-button>
+    </div>
+    <div>
+      <!-- <ion-input label="Estimated time in hours" type="number" labelPlacement="floating" placeholder="Enter hour"></ion-input> -->
+      <ion-button (click)="estimatedTime()" expand="block" routerLink="/project-data-fourth-step" >Estimated time</ion-button>
+    </div>
+    </ion-list>
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <div>
+          <h1>
+            {{ item }}
+          </h1>
+          <p>
+            Estimated time
+          </p>
+        </div>
+        <ion-button (click)="subTaskEdit(item)" slot="end">Edit</ion-button>
+      </ion-item>
+    </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <ion-button (click)="saveTask()" expand="block" routerLink="/project-data-first-step" >Save</ion-button>
+  </ion-toolbar>
+</ion-footer>

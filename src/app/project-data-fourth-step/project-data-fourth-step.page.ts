@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { log } from 'console';
 
 @Component({
   selector: 'app-project-data-fourth-step',
@@ -12,4 +13,15 @@ export class ProjectDataFourthStepPage implements OnInit {
   ngOnInit() {
   }
 
+  ionViewDidLeave(){
+    console.log("exit window");
+  }
+
+  customCounterFormatter(inputLength: number, maxLength: number) {
+    return `${maxLength - inputLength} characters remaining`;
+  }
+
+  saveEstimatedTime(){
+    console.log("Save estimated time");
+  }
 }

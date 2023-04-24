@@ -44,10 +44,6 @@ const routes: Routes = [
     loadChildren: () => import('./project-data-fifth-step/project-data-fifth-step.module').then( m => m.ProjectDataFifthStepPageModule)
   },
   {
-    path: 'project-data-time-step',
-    loadChildren: () => import('./project-data-time-step/project-data-time-step.module').then( m => m.ProjectDataTimeStepPageModule)
-  },
-  {
     path: 'project-data-visualized',
     loadChildren: () => import('./project-data-visualized/project-data-visualized.module').then( m => m.ProjectDataVisualizedPageModule)
   },

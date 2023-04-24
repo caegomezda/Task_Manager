@@ -1,13 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>proyectDataFourthStep</ion-title>
+    <!-- <ion-title>proyectDataFourthStep</ion-title> -->
+    <ion-button slot="start" routerLink="/project-data-third-step" >Back</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">proyectDataFourthStep</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <div>
+        <ion-input label="Estimated time" type="number" labelPlacement="floating" placeholder="Enter the hour"></ion-input>
+    </div>
+    <div>
+      <ion-textarea
+      label="Description"
+      labelPlacement="floating"
+      [counter]="true"
+      maxlength="20"
+      [counterFormatter]="customCounterFormatter"
+      ></ion-textarea>
+    </div>
+    <div>
+      <ion-datetime></ion-datetime>
+    </div>
+    </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <ion-button expand="block" (click)="saveEstimatedTime()"  routerLink="/project-data-third-step" >Save</ion-button>
+  </ion-toolbar>
+</ion-footer>

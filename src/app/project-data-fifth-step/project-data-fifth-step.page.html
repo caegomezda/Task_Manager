@@ -1,13 +1,57 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>proyectDataFifthStep</ion-title>
+    <!-- <ion-title>proyectDataFifthStep</ion-title> -->
+    <ion-button slot="end" routerLink="/project-data-first-step" >Edit</ion-button>
+    <ion-button slot="start" routerLink="/project-data-first-step" >Back</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">proyectDataFifthStep</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-label>Project Name</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Project progress</ion-label>
+      <ion-progress-bar value=".6" ></ion-progress-bar>
+    </ion-item>
+    <ion-item>
+      <h5>
+        <p>
+          Project description
+        </p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+      </h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Estimated time</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+      <ion-item (click)="showList(item)" *ngFor="let item of items">
+        <div>
+          <h1>
+            {{ item.name }}
+          </h1>
+          <p>
+            Estimated time
+          </p>
+        </div>
+          <ion-progress-bar value=".7" ></ion-progress-bar>
+        <!-- <ion-button (click)="subTaskEdit(item)" slot="end">Edit</ion-button> -->
+        <ion-list *ngIf="item.showListFlag">
+          <ion-item *ngFor="let item of item.subtasks">
+            {{ item }}
+          </ion-item>
+        </ion-list>
+        
+        </ion-item>
+      </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <!-- <ion-button (click)="saveTask()" expand="block" routerLink="/project-data-first-step" >Save</ion-button> -->
+  </ion-toolbar>
+</ion-footer>

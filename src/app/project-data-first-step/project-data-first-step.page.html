@@ -1,13 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>proyectDataFirstStep</ion-title>
+    <!-- <ion-title>proyectDataFirstStep</ion-title> -->
+    <ion-button slot="start" routerLink="/home" >Back</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">projectDataFirstStep</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <div>
+        <ion-input label="   Project name" labelPlacement="floating" placeholder="Enter text"></ion-input>
+    </div>
+    <div>
+      <ion-textarea
+      label="Project description"
+      labelPlacement="floating"
+      [counter]="true"
+      maxlength="20"
+      [counterFormatter]="customCounterFormatter"
+      ></ion-textarea>
+    </div>
+    <div>
+      <ion-button expand="block"  routerLink="/project-data-second-step" >Add task</ion-button>
+    </div>
+    <div>
+      <ion-datetime></ion-datetime>
+    </div>
+    </ion-list>
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <div>
+          <h1>
+            {{ item }}
+          </h1>
+          <p>
+            Estimated time
+          </p>
+        </div>
+          <ion-button (click)="taskEdit(item)" slot="end">Edit</ion-button>
+      </ion-item>
+    </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <ion-button expand="block" (click)="nextStepProject()"  routerLink="/project-data-fifth-step" >Continue</ion-button>
+  </ion-toolbar>
+</ion-footer>
