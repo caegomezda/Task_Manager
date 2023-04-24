@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'sign-in',
     pathMatch: 'full'
   },
   {
@@ -24,32 +24,36 @@ const routes: Routes = [
     loadChildren: () => import('./email-verifier/email-verifier.module').then( m => m.EmailVerifierPageModule)
   },
   {
-    path: 'proyect-data-first-step',
-    loadChildren: () => import('./proyect-data-first-step/proyect-data-first-step.module').then( m => m.ProyectDataFirstStepPageModule)
+    path: 'project-data-first-step',
+    loadChildren: () => import('./project-data-first-step/project-data-first-step.module').then( m => m.ProjectDataFirstStepPageModule)
   },
   {
-    path: 'proyect-data-second-step',
-    loadChildren: () => import('./proyect-data-second-step/proyect-data-second-step.module').then( m => m.ProyectDataSecondStepPageModule)
+    path: 'project-data-second-step',
+    loadChildren: () => import('./project-data-second-step/project-data-second-step.module').then( m => m.ProjectDataSecondStepPageModule)
   },
   {
-    path: 'proyect-data-third-step',
-    loadChildren: () => import('./proyect-data-third-step/proyect-data-third-step.module').then( m => m.ProyectDataThirdStepPageModule)
+    path: 'project-data-third-step',
+    loadChildren: () => import('./project-data-third-step/project-data-third-step.module').then( m => m.ProjectDataThirdStepPageModule)
   },
   {
-    path: 'proyect-data-fourth-step',
-    loadChildren: () => import('./proyect-data-fourth-step/proyect-data-fourth-step.module').then( m => m.ProyectDataFourthStepPageModule)
+    path: 'project-data-fourth-step',
+    loadChildren: () => import('./project-data-fourth-step/project-data-fourth-step.module').then( m => m.ProjectDataFourthStepPageModule)
   },
   {
-    path: 'proyect-data-fifth-step',
-    loadChildren: () => import('./proyect-data-fifth-step/proyect-data-fifth-step.module').then( m => m.ProyectDataFifthStepPageModule)
+    path: 'project-data-fifth-step',
+    loadChildren: () => import('./project-data-fifth-step/project-data-fifth-step.module').then( m => m.ProjectDataFifthStepPageModule)
   },
   {
-    path: 'proyect-data-time-step',
-    loadChildren: () => import('./proyect-data-time-step/proyect-data-time-step.module').then( m => m.ProyectDataTimeStepPageModule)
+    path: 'project-data-time-step',
+    loadChildren: () => import('./project-data-time-step/project-data-time-step.module').then( m => m.ProjectDataTimeStepPageModule)
   },
   {
-    path: 'proyect-data-visualized',
-    loadChildren: () => import('./proyect-data-visualized/proyect-data-visualized.module').then( m => m.ProyectDataVisualizedPageModule)
+    path: 'project-data-visualized',
+    loadChildren: () => import('./project-data-visualized/project-data-visualized.module').then( m => m.ProjectDataVisualizedPageModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
 ];
 
