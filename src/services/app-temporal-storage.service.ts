@@ -4,11 +4,26 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AppTemporalStorageService {
-
+  userData:any = ""
   constructor() { }
 
-  temporalStorageManager(item:string,params:any){
-    let result = "Temporal Storage Manager"
-    return result
+  async temporalStorageManager(item:string,params:any){
+    switch (item) {
+      case "DataUserExtractor":
+        return await this.UserDataSaver(params)
+      case "UserDataGetter":
+        return await this.UserDataGetter()
+      default:
+        return null
+     }
+  }
+
+  async UserDataSaver(params:any){
+    this.userData = params
+    return true
+  }
+
+  async UserDataGetter(){
+    return this.userData
   }
 }

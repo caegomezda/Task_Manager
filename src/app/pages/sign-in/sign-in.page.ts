@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AppToolManagerService } from 'src/services/app-tool-manager.service';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.page.html',
@@ -9,14 +10,22 @@ export class SignInPage implements OnInit {
   email: string = '';
   password: string = '';
 
-  constructor(private navCtrl: NavController) { }
+  constructor(
+    private navCtrl: NavController,
+    private toolManager: AppToolManagerService,
+    ) { }
 
   ngOnInit() {
   }
 
-  signIn() {
-    // Here you would handle the login process, such as sending the credentials to a server and verifying them
-    // If the login is successful, you would navigate to the next page
-    this.navCtrl.navigateForward('/home');
+  async SignIn() {
+    let userLogResponse = await this.toolManager.authManager("SignIn",{"account":{"email":this.email,"password":this.password}});
+    let userData = await this.toolManager.utilitiesManager("DataUserExtractor",{"object": userLogResponse, "params":["email","uid","accessToken"]});
+    let response = await this.toolManager.temporalStorageManager("UserDataSaver",userData)
+    if(response){
+      this.navCtrl.navigateForward('/home');
+    }else{
+      console.log("Error 0001");
+    }
   }
 }

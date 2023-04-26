@@ -22,40 +22,32 @@ export class AppToolManagerService {
     private utilities:AppUtilitiesService,
   ) { }
 
-  apiManager(item:string,paramas:any){
-    let result = this.api.apiManager(item,paramas)
-    return result
+  async apiManager(item:string,params:any){
+    return await this.api.apiManager(item,params)
   }
 
-  authManager(item:string,paramas:any){
-    let result = this.auth.authManager(item,paramas)
-    return result
+  async authManager(item:string,params:any){
+    return await this.auth.authManager(item,params)
   }
 
-  firebaseManager(item:string,paramas:any){
-    let result = this.firebase.firebaseManager(item,paramas)
-    return result
+  async firebaseManager(item:string,params:any){
+    return await this.firebase.firebaseManager(item,params)
   }
 
-  localStorageManager(item:string,paramas:any){
-    let result = this.localStorage.localStorageManager(item,paramas)
-    return result
+  async localStorageManager(item:string,params:any){
+    return await this.localStorage.localStorageManager(item,params)
   }
 
-  logManager(item:string,paramas:any){
-    let result = this.log.logManager(item,paramas)
-    return result
+  async logManager(item:string,params:any){
+    return await this.log.logManager(item,params)
   }
 
-  temporalStorageManager(item:string,paramas:any){
-    let result = this.temporalStorage.temporalStorageManager(item,paramas)
-    return result
+  async temporalStorageManager(item:string,params:any){
+    return await this.temporalStorage.temporalStorageManager(item,params)
   }
 
-  utilitiesManager(item:string,paramas:any){
-    let result = this.utilities.utilitiesManager(item,paramas)
-    return result
+  async utilitiesManager(item:string,params:any){
+    return await this.utilities.utilitiesManager(item,params)
   }
-  
 
 }

@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class AppFirebaseService {
 
-  constructor() { }
+  constructor(
+  ) { }
 
-  firebaseManager(item:string,params:any){
+  async firebaseManager(item:string,params:any){
     let result = "Firebase Manager"
-    return result
+    return await result
   }
+
 }

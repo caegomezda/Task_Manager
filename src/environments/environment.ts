@@ -3,8 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  firebaseConfig : {
+    apiKey: "AIzaSyCaxeOFHcR03vvX7qRPpqdtF3BejBpv36c",
+    authDomain: "taskmanager-cec40.firebaseapp.com",
+    databaseURL: "https://taskmanager-cec40-default-rtdb.firebaseio.com",
+    projectId: "taskmanager-cec40",
+    storageBucket: "taskmanager-cec40.appspot.com",
+    messagingSenderId: "179932138952",
+    appId: "1:179932138952:web:654c6debf348dc35ddc4fd",
+    measurementId: "G-73CJ1KZ0RE"
+  }
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
