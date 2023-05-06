@@ -6,6 +6,7 @@ import { AppTemporalStorageService } from './app-temporal-storage.service';
 import { AppUtilitiesService } from './app-utilities.service';
 import { AppAuthService } from './app-auth.service';
 import { AppSessionService } from './app-session.service';
+import { AppProjectBuilderService } from './app-project-builder.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class AppToolManagerService {
     private log:AppSessionService,
     private temporalStorage:AppTemporalStorageService,
     private utilities:AppUtilitiesService,
+    private projectManager:AppProjectBuilderService,
   ) { }
 
   async apiManager(item:string,params:any){
@@ -50,7 +52,7 @@ export class AppToolManagerService {
     return await this.utilities.utilitiesManager(item,params)
   }
   async projectBuilderManager(item:string,params:any){
-    return await this.utilities.utilitiesManager(item,params)
+    return await this.projectManager.projectBuilderManager(item,params)
   }
 
 }

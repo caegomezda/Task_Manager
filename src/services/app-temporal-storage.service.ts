@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AppTemporalStorageService {
   userData:any = ""
+  formProject:any = {}
   constructor() { }
 
   async temporalStorageManager(item:string,params:any){
@@ -13,6 +14,8 @@ export class AppTemporalStorageService {
         return await this.UserDataSaver(params)
       case "UserDataGetter":
         return await this.UserDataGetter()
+      case "ProjectFormBuilderSaver":
+        return await this.ProjectFormBuilderSaver(params)
       default:
         return null
      }
@@ -26,4 +29,13 @@ export class AppTemporalStorageService {
   async UserDataGetter(){
     return this.userData
   }
+
+  async ProjectFormBuilderSaver(params:any){
+    this.formProject = params
+  }
+
+  async ProjectFormBuilderGetter(){
+    return this.formProject
+  }
+
 }

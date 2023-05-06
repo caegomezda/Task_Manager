@@ -12,11 +12,14 @@ export class HomePage {
   constructor(
     private navCtrl: NavController,
     private toolManager: AppToolManagerService,
- 
     ) { }
 
 
-  addItem() {
+    async addNewProject() {
+    let result = await this.toolManager.projectBuilderManager("FormNewProjectBuilder",null)  
+    await this.toolManager.temporalStorageManager("ProjectFormBuilderSaver",result)
+    console.log(result);
+    
     this.navCtrl.navigateForward('/project-data-first-step');
   }
 

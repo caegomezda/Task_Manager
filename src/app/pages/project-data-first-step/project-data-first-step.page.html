@@ -27,16 +27,16 @@
     </div>
     </ion-list>
     <ion-list>
-      <ion-item *ngFor="let item of items">
+      <ion-item *ngFor="let task of taskList">
         <div>
           <h1>
-            {{ item }}
+            {{ task }}
           </h1>
           <p>
             Estimated time
           </p>
         </div>
-          <ion-button (click)="taskEdit(item)" slot="end">Edit</ion-button>
+          <ion-button (click)="taskEdit(task)" slot="end">Edit</ion-button>
       </ion-item>
     </ion-list>
 </ion-content>

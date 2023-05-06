@@ -8,12 +8,12 @@ export class AppProjectBuilderService {
   newTaskJsonForm:any = {}
   constructor() { }
 
-  async ProjectBuilderManager(item:string,params:any){
+  async projectBuilderManager(item:string,params:any){
     switch (item) {
       case "FormNewProjectBuilder":
-        return await this.FormNewProjectBuilder(params)
-      case "AddParamsForm":
-          return await this.AddParamsForm(params)
+        return await this.FormNewProjectBuilder()
+      case "UpdateForm":
+          return await this.UpdateForm(params)
       case "AddTask2Form":
             return await this.AddTask2Form(params)
       default:
@@ -21,7 +21,7 @@ export class AppProjectBuilderService {
      }
   }
   
-  async FormNewProjectBuilder(params:any){
+  async FormNewProjectBuilder(){
       this.newProjectJsonForm = {}
       this.newProjectJsonForm = {
         "name":"",
@@ -46,7 +46,7 @@ export class AppProjectBuilderService {
 }
 
 //Analizar la posibilidad de actulizarlo en cualquier parte del codigo
-  async AddParamsForm(params:any){
+  async UpdateForm(params:any){
       this.newProjectJsonForm.name = params.name
       this.newProjectJsonForm.description = params.description
       this.newProjectJsonForm.startedDate = params.startedDate
