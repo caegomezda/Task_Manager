@@ -49,5 +49,8 @@ export class AppToolManagerService {
   async utilitiesManager(item:string,params:any){
     return await this.utilities.utilitiesManager(item,params)
   }
+  async projectBuilderManager(item:string,params:any){
+    return await this.utilities.utilitiesManager(item,params)
+  }
 
 }

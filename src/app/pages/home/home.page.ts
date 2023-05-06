@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AppToolManagerService } from 'src/services/app-tool-manager.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,11 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
   items: string[] = ["project 1","project 2","project 3"];
-  constructor(private navCtrl: NavController) { }
+  constructor(
+    private navCtrl: NavController,
+    private toolManager: AppToolManagerService,
+ 
+    ) { }
 
 
   addItem() {
@@ -17,6 +22,5 @@ export class HomePage {
 
   onClick(item:any){
     this.navCtrl.navigateForward('/project-data-visualized');
-
   }
 }
