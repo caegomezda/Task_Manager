@@ -6,25 +6,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <div>
-        <ion-input label="   Project name" labelPlacement="floating" placeholder="Enter text"></ion-input>
-    </div>
-    <div>
-      <ion-textarea
-      label="Project description"
-      labelPlacement="floating"
-      [counter]="true"
-      maxlength="20"
-      [counterFormatter]="customCounterFormatter"
-      ></ion-textarea>
-    </div>
-    <div>
-      <ion-button expand="block"  routerLink="/project-data-second-step" >Add task</ion-button>
-    </div>
-    <div>
-      <ion-datetime></ion-datetime>
-    </div>
+  <form (ngSubmit)="projectSubmit()" #projectForm="ngForm">
+    <ion-list>
+      <div>
+          <ion-input name="projectName" [(ngModel)]="projectName" label="Project name" labelPlacement="floating" placeholder="Enter text"></ion-input>
+      </div>
+      <div>
+        <ion-textarea
+        label="Project description"
+        labelPlacement="floating"
+        [counter]="true"
+        maxlength="20"
+        [counterFormatter]="customCounterFormatter"
+        [(ngModel)]="projectDescription"
+        name="projectDescription"
+        ></ion-textarea>
+      </div>
+      <div>
+        <ion-button expand="block" (click)="addTaksClick()"  routerLink="/project-data-second-step" >Add task</ion-button>
+      </div>
+      <div>
+        <ion-datetime></ion-datetime>
+      </div>
     </ion-list>
     <ion-list>
       <ion-item *ngFor="let task of taskList">
@@ -39,6 +42,7 @@
           <ion-button (click)="taskEdit(task)" slot="end">Edit</ion-button>
       </ion-item>
     </ion-list>
+  </form>
 </ion-content>
 
 <ion-footer>

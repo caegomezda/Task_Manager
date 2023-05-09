@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { CustomAlertComponent } from 'src/app/components/custom-alert/custom-alert.component';
 import { AppToolManagerService } from 'src/services/app-tool-manager.service';
 
 @Component({
@@ -12,21 +11,29 @@ export class ProjectDataFirstStepPage implements OnInit {
   taskList: string[] = [];
   newItem: string = '';
   projectForm:any = {}
+  projectName:string = ""
+  projectDescription:string = ""
   constructor(
     private navCtrl: NavController,
     private toolManager: AppToolManagerService,
-    public alertComponet: CustomAlertComponent
     ) { }
 
   ngOnInit() {
   }
 
   ionViewWillEnter(){
-
+    this.newFormGetter()
   }
 
   async newFormGetter(){
-     this.projectForm = await this.toolManager.temporalStorageManager("ProjectFormBuilderGetter",null)
+    this.projectForm = await this.toolManager.temporalStorageManager("ProjectFormBuilderGetter",null)
+    console.log(this.projectForm);
+    
+  }
+
+  async addTaksClick(){
+    await this.projectSubmit()
+    this.navCtrl.navigateForward('/project-data-second-step');
   }
 
   customCounterFormatter(inputLength: number, maxLength: number) {
@@ -36,10 +43,17 @@ export class ProjectDataFirstStepPage implements OnInit {
   taskEdit(task:any){
     console.log(task);
     this.navCtrl.navigateForward('/project-data-second-step');
-
   }
+
   nextStepProject(){
-    this.alertComponet.showAlert()  
     console.log("Project saved");
+  }
+
+  projectSubmit(){
+    const formData = {
+      projectName: this.projectName,
+      projectDescription: this.projectDescription,
+      // Add other form fields if needed
+    };
   }
 }

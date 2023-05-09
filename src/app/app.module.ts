@@ -12,7 +12,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 import { environment } from '../environments/environment';
-import { CustomAlertComponent } from './components/custom-alert/custom-alert.component';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { CustomAlertComponent } from './components/custom-alert/custom-alert.com
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,],
   providers: [
-    CustomAlertComponent,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
